@@ -1,33 +1,51 @@
-function getnum()
+let result = 0;
+// let value = 0;
+let temp = 0;
+let num = 0;
+function appendValue(number) 
 {
-    var num1 = document.getElementById("Number1").value;
-    var num2 = document.getElementById("Number2").value;
-    var forms = document.getElementById("forms").value;
+    document.getElementById('result').value += number;
+    num += number;
 
-    var result;
-    
-
-    switch (forms)
+}
+var sign; 
+function calculator(forms)
+{
+    sign = forms;
+    temp = num;
+    num = 0;
+    document.getElementById('result').value = '';
+}
+function clearResult() {
+    // num = 0;
+    // temp = 0;
+    // result = 0;
+    document.getElementById('result').value = '';
+}
+function getResult()
+{
+    // window.alert(temp);
+    switch (sign)
     {
         case "+":
-            result = Number(num1) + Number(num2);
+            result = Number(temp) + Number(num);
             break;
         case "-":
-            result = Number(num1) - Number(num2);
+            result = Number(temp) - Number(num);
             break;
         case "*":
-            result = Number(num1) * Number(num2);
+            result = Number(temp) * Number(num);
             break;
         case "/":
-            result = Number(num1) / Number(num2);
+            result = Number(temp) / Number(num);
             break;
         case "^":
-            result = Number(num1) ** Number(num2);
+            result = Number(temp) ** Number(num);
             break;
     }
-    var resultContainer = document.getElementById('resultContainer');
-    var resultElement = document.createElement('p');
-    resultElement.textContent = 'Result: ' + result;
-    resultContainer.innerHTML = '';
-    resultContainer.appendChild(resultElement);
+    // document.getElementById('result').value = '';
+    document.getElementById('result').value =   Number(result);
+    num = 0;
+    temp = 0;
+    // result = 0;
 }
